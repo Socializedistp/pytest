@@ -4,7 +4,18 @@ prices = [2000, 3000, 4900]
 amounts = [0] * len(drinks)
 total_price = 0
 
-def order_process(idx: int):
+def order_process(idx: int):        #documentation
+    """
+    Processes a drink order by updating the total price and quantity.
+
+    Params:
+        idx (int): The index of the selected drink in the menu.
+    
+    Updates:
+        - Prints the ordered drink and its price.
+        - Adds the price of the selected drink to the total price.
+        - Increments the count of the selected drink.
+    """
     global total_price
     print(f"{drinks[idx]} ordered. Price : {prices[idx]}won")
     total_price = total_price + prices[idx]
