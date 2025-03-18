@@ -1,7 +1,7 @@
 # # 1) Ice Americano : 2000  2) Cafe Latte : 3000
 drinks = ["Ice Americano", "Cafe Latte", "Watermelon Juice"]
 prices = [2000, 3000, 4900]
-amounts = [0 for _ in range(len(drinks))]
+amounts = [0] * len(drinks)
 total_price = 0
 
 def order_process(idx: int):
