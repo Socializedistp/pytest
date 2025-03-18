@@ -1,7 +1,10 @@
 # # 1) Ice Americano : 2000  2) Cafe Latte : 3000
 drinks = ["Ice Americano", "Cafe Latte", "Watermelon Juice"]
 prices = [2000, 3000, 4900]
-amounts = [0, 0, 0]
+#amounts = [0, 0, 0]
+amounts = lest()
+for _ in range(len(drinks)):
+    amounts.append(0)
 total_price = 0
 
 def order_process(idx: int):
