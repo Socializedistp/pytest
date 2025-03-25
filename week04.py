@@ -3,7 +3,21 @@ drinks = ["Ice Americano", "Cafe Latte", "Watermelon Juice"]
 prices = [2000, 3000, 4900]
 amounts = [0] * len(drinks)
 total_price = 0
+DISCOUNT_TRESHOLD = 10000
+DISCOUNT_RATE = 0.1
 
+def apply_discount(price: int):
+    """_summary_
+    total price exceeds standard price, reflect discounted price
+    Args:
+        price (int): price before discount
+        return: price after discount
+    """
+    if price >= DISCOUNT_TRESHOLD:
+        discount = price * DISCOUNT_RATE
+        return (price - discount)
+    return price
+    
 def order_process(idx: int):        #documentation
     """
     Processes a drink order by updating the total price and quantity.
@@ -40,4 +54,11 @@ print("Product  Price  Amount  Subtotal")
 for i in range(len(drinks)):
     if amounts[i] > 0:
         print(f"{drinks[i]} {prices[i]} x{amounts[i]} {prices[i] * amounts[i]}")
-print(f"Total price : {total_price}won")
+
+deiscounted_price = apply_discount(total_price)
+discount_amount = total_price - deiscounted_price
+if(discount_amount > 0):
+    print(f"discount_amount: {discount_amount}won")
+else: 
+    print(f"Discount is not been applied")
+print(f"Total price : {deiscounted_price}won")
