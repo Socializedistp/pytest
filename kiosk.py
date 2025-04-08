@@ -22,7 +22,7 @@ class Menu:
         :return: formatted menu string
         """
         return "".join(
-            [f"{k + 1}) {self.drinks[k]} {self.prices[k]} won  "
+            [f"{k + 1}) {self.drinks[k]} {self.prices[k]} won\n"
              for k in range(len(self.drinks))]
         ) + f"{len(self.drinks) + 1}) Exit : "
 
@@ -103,8 +103,7 @@ class OrderProcessor:
                 drink_name = self.menu.get_drink_name(i)
                 drink_price = self.menu.get_price(i)
 
-                print(
-                    f"{drink_name:<15} {drink_price:<10} {self.amounts[i]:<10} {drink_price * self.amounts[i]:<10}")
+                print( f"{drink_name:<15} {drink_price:<10} {self.amounts[i]:<10} {drink_price * self.amounts[i]:<10}won ")
 
         discounted_price = self.apply_discount(self.total_price)
         discount = self.total_price - discounted_price
