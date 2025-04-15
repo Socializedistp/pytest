@@ -145,7 +145,9 @@ class OrderProcessor:
             self.cur.execute('insert into ticket (number) values (?)',(number,))
         else:
             number = result[0] + 1
-            self.cur.execute('insert into ticket (number) values (?)', (number,))
+            # self.cur.execute('insert into ticket (number) values (?)', (number,))
+            self.cur.execute('update ticket set number = ? where id = (select id from ticket order by id desc limit 1)',
+                             (number,))
 
         self.conn.commit()
         return number
