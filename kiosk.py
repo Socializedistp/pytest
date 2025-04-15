@@ -127,14 +127,13 @@ class OrderProcessor:
                 number = int(fp.read())
         except FileNotFoundError:
             number = 0
-        
+
         number = number + 1
 
         with open("ticket_number.txt", "w") as fp:
             fp.write(str(number))
 
         return number
-
 
     def run(self):
         """Execute the order system"""
@@ -156,3 +155,7 @@ class OrderProcessor:
 
         self.print_receipt()
         print(f"Queue number ticket : {self.get_next_ticket_number()}")
+
+    def __del__(self):
+        # db connection close ....
+        print('End program')
