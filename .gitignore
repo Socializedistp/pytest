@@ -5,3 +5,4 @@ mymodule.py
 .env
 *.exe
 *.db
+scrapy.py
